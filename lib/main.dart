@@ -1,20 +1,22 @@
 import 'package:app_learning/pages/welcome/welcome.dart';
 import 'package:flutter/material.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  await ScreenUtil.ensureScreenSize();
+
+  runApp(
+    const ProviderScope(child: MyApp()),
+  );
 }
-
-final appcount = Provider<int>((ref) {
-  return 1;
-});
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context, designSize: const Size(360, 690));
     return MaterialApp(
       title: 'Riverpod 2.',
       theme: ThemeData(

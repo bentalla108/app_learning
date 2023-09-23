@@ -1,3 +1,4 @@
+import 'package:app_learning/pages/notifier/welcome_notifier.dart';
 import 'package:app_learning/pages/welcome/welcome_text.dart';
 import 'package:app_learning/pages/welcome/widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -21,9 +22,11 @@ class Welcome extends ConsumerWidget {
     }
   }
 
+  int dotIndex = 0;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final indexPage = ref.watch(indexProvider);
+    final indexPage = ref.watch(indexDotProvider);
     return Container(
       color: Colors.white,
       child: SafeArea(
@@ -35,7 +38,7 @@ class Welcome extends ConsumerWidget {
               children: [
                 PageView.builder(
                   onPageChanged: (value) {
-                    ref.read(indexProvider.notifier).state = value;
+                    ref.read(indexDotProvider.notifier).changeValue(value);
                   },
                   controller: _controller,
                   itemCount: _pageInformation.length,
