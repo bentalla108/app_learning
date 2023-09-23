@@ -1,3 +1,4 @@
+import 'package:app_learning/pages/welcome/widget.dart';
 import 'package:flutter/material.dart';
 
 class Welcome extends StatelessWidget {
@@ -5,19 +6,18 @@ class Welcome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.cyan,
+    return Scaffold(
       body: Stack(
         children: [
-          Positioned(
-            left: 20,
-            bottom: 200,
-            child: Text('Widget One'),
-          ),
-          Positioned(
-            left: 200,
-            child: Text('Widget One'),
-          ),
+          PageView(
+            children: [
+              appOnBoardingPage(
+                imageurl: 'assets/images/reading.png',
+                title: 'First see learning',
+                subTitle: 'Forget about of paper all knowledge in one learning',
+              )
+            ],
+          )
         ],
       ),
     );
