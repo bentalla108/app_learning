@@ -1,4 +1,4 @@
-import 'package:app_learning/pages/welcome/welcome.dart';
+import 'package:app_learning/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Welcome(),
+      initialRoute: '/',
+      routes: router,
     );
   }
 }

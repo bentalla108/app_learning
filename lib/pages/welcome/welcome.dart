@@ -1,4 +1,3 @@
-import 'package:app_learning/pages/sign_in/sign_in.dart';
 import 'package:app_learning/pages/welcome/notifier/welcome_notifier.dart';
 import 'package:app_learning/pages/welcome/welcome_text.dart';
 import 'package:app_learning/pages/welcome/widget.dart';
@@ -22,10 +21,8 @@ class Welcome extends ConsumerWidget {
     }
 
     if (index == (_pageInformation.length - 1)) {
-      Navigator.of(context).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => const SignIn(),
-        ),
+      Navigator.of(context).pushNamed(
+        '/signIn',
       );
     }
   }
@@ -60,7 +57,7 @@ class Welcome extends ConsumerWidget {
                   },
                 ),
                 Positioned(
-                  bottom: 100,
+                  bottom: 80.h,
                   child: DotsIndicator(
                     mainAxisAlignment: MainAxisAlignment.center,
                     dotsCount: _pageInformation.length,

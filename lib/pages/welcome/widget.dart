@@ -12,14 +12,14 @@ Widget appOnBoardingPage(
       Image.asset(imageurl, fit: BoxFit.fitWidth),
       Container(
         margin: const EdgeInsets.only(top: 15),
-        child: test24normal(
+        child: text24normal(
           text: title,
         ),
       ),
       Container(
         margin: const EdgeInsets.only(top: 15),
         padding: const EdgeInsets.only(right: 30, left: 30),
-        child: test16normal(text: subTitle),
+        child: text16normal(text: subTitle),
       ),
       _nextButton(onTapFunction: onTapFunction),
     ],
@@ -35,7 +35,7 @@ Widget _nextButton({required VoidCallback onTapFunction}) {
       height: 50,
       decoration: appBoxShadow(),
       child: Center(
-        child: test16normal(
+        child: text16normal(
           text: 'Next',
           color: Colors.white,
         ),

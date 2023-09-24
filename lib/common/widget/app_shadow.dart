@@ -19,3 +19,14 @@ BoxDecoration appBoxShadow(
     ],
   );
 }
+
+BoxDecoration appBoxDecorationTextField({
+  Color color = AppColors.primaryBackground,
+  Color borderColor = AppColors.primaryFourElementText,
+  double radius = 15,
+}) {
+  return BoxDecoration(
+      color: color,
+      borderRadius: BorderRadius.circular(radius),
+      border: Border.all(color: borderColor));
+}
