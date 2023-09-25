@@ -34,6 +34,7 @@ class Welcome extends ConsumerWidget {
       color: Colors.white,
       child: SafeArea(
         child: Container(
+          color: Colors.white,
           margin: EdgeInsets.only(top: 30.h),
           child: Scaffold(
             body: Stack(

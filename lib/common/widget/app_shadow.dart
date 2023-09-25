@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 
 BoxDecoration appBoxShadow(
     {Color color = AppColors.primaryElement,
+    Border? border,
     double radius = 15,
     double sR = 1,
     double bR = 2}) {
   return BoxDecoration(
     color: color,
+    border: border,
     borderRadius: BorderRadius.circular(15),
     boxShadow: [
       BoxShadow(

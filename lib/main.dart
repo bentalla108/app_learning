@@ -1,3 +1,4 @@
+import 'package:app_learning/common/utils/app_style.dart';
 import 'package:app_learning/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,13 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(context, designSize: const Size(360, 690));
+    ScreenUtil.init(context, designSize: const Size(372, 812));
     return MaterialApp(
       title: 'Riverpod 2.',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      theme: AppTheme.appThemeData,
       initialRoute: '/',
       routes: router,
     );

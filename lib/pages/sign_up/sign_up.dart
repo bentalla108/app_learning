@@ -3,13 +3,11 @@ import 'package:app_learning/common/widget/app_bar.dart';
 import 'package:app_learning/common/widget/app_textfield.dart';
 import 'package:app_learning/common/widget/button_widget.dart';
 import 'package:app_learning/common/widget/text_widget.dart';
-import 'package:app_learning/pages/sign_in/widget/sing_in_widget.dart';
-import 'package:app_learning/pages/sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,24 +15,27 @@ class SignIn extends StatelessWidget {
     return Container(
       child: SafeArea(
         child: Scaffold(
-          appBar: buildAppBar(title: 'Sign In'),
+          appBar: buildAppBar(title: 'Sign Up'),
           body: Center(
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  thirdPartyLogin(),
                   Center(
                     child: text14normal(
-                        text: 'Or use your email account to login'),
+                        text: 'Enter yours details below and free sign up'),
                   ),
                   SizedBox(
                     height: 50.h,
                   ),
                   appTextField(
+                      text: 'User name',
+                      iconName: 'assets/icons/user.png',
+                      hintText: 'Enter your name'),
+                  appTextField(
                       text: 'Email',
                       iconName: 'assets/icons/user.png',
-                      hintText: 'Enter your Email'),
+                      hintText: 'Enter your Email address'),
                   SizedBox(
                     height: 20.h,
                   ),
@@ -42,40 +43,31 @@ class SignIn extends StatelessWidget {
                       obsText: true,
                       text: 'Password',
                       iconName: 'assets/icons/lock.png',
-                      hintText: 'Enter your password'),
+                      hintText: 'Enter your Password'),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  appTextField(
+                      obsText: true,
+                      text: 'Confirm Password',
+                      iconName: 'assets/icons/lock.png',
+                      hintText: 'Enter your Confirm Password'),
                   Padding(
-                    padding: EdgeInsets.only(
-                      top: 20.h,
-                      left: 25.w,
-                    ),
-                    child: textUnderline(
-                      text: 'Forgot password',
+                    padding:
+                        EdgeInsets.only(top: 10.h, left: 25.w, right: 25.w),
+                    child: text14normal(
+                      text:
+                          'By Creating an account you have to agree with \nour therm & condition.',
                     ),
                   ),
                   SizedBox(
-                    height: 100.w,
+                    height: 50.w,
                   ),
                   Center(
                     child: customButton(
                         onTapFunction: () {},
-                        text: 'LogIn',
-                        textColor: AppColors.primaryBackground),
-                  ),
-                  Center(
-                    child: customButton(
-                        border:
-                            Border.all(color: AppColors.primaryFourElementText),
-                        color: Colors.white,
-                        onTapFunction: () {
-                          Navigator.push<void>(
-                            context,
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) => const SignUp(),
-                            ),
-                          );
-                        },
                         text: 'Sign Up',
-                        textColor: AppColors.primaryText),
+                        textColor: AppColors.primaryBackground),
                   ),
                 ],
               ),
