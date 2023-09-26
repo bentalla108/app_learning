@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget appTextField(
-    {String text = '',
+    {TextEditingController? controllerNamer,
+    String text = '',
     String hintText = '',
     String iconName = "",
-    bool obsText = false}) {
+    bool obsText = false,
+    void Function(String value)? func}) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 25.w),
     child: Column(
@@ -35,6 +37,7 @@ Widget appTextField(
                 width: 270.w,
                 height: 50.h,
                 child: TextField(
+                  controller: controllerNamer,
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                     hintText: hintText,
@@ -59,7 +62,7 @@ Widget appTextField(
                       ),
                     ),
                   ),
-                  onChanged: (value) {},
+                  onChanged: (value) => func!(value),
                   maxLines: 1,
                   obscureText: obsText,
                   autocorrect: false,

@@ -4,7 +4,6 @@ import 'package:app_learning/common/widget/app_textfield.dart';
 import 'package:app_learning/common/widget/button_widget.dart';
 import 'package:app_learning/common/widget/text_widget.dart';
 import 'package:app_learning/pages/sign_in/widget/sing_in_widget.dart';
-import 'package:app_learning/pages/sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -67,12 +66,7 @@ class SignIn extends StatelessWidget {
                             Border.all(color: AppColors.primaryFourElementText),
                         color: Colors.white,
                         onTapFunction: () {
-                          Navigator.push<void>(
-                            context,
-                            MaterialPageRoute<void>(
-                              builder: (BuildContext context) => const SignUp(),
-                            ),
-                          );
+                          Navigator.of(context).pushNamed('/signUp');
                         },
                         text: 'Sign Up',
                         textColor: AppColors.primaryText),

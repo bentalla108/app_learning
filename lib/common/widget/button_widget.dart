@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget customButton(
-    {required VoidCallback onTapFunction,
+    {BuildContext? context,
+    required VoidCallback onTapFunction,
     Color textColor = Colors.white,
     Color color = AppColors.primaryElement,
     String text = '',
