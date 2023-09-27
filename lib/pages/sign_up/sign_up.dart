@@ -37,92 +37,94 @@ class _SignUpState extends ConsumerState<SignUp> {
       child: SafeArea(
         child: Scaffold(
           appBar: buildAppBar(title: 'Sign Up'),
-          body: loader
-              ? const CircularProgressIndicator(
-                  backgroundColor: Colors.blue,
-                  color: AppColors.primaryElement,
-                )
-              : Center(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Center(
-                          child: text14normal(
-                              text:
-                                  'Enter yours details below and free sign up'),
-                        ),
-                        SizedBox(
-                          height: 50.h,
-                        ),
-                        appTextField(
-                            func: (value) {
-                              ref
-                                  .read(registerNotifierProvider.notifier)
-                                  .onUserNamechange(value);
-                            },
-                            text: 'User name',
-                            iconName: 'assets/icons/user.png',
-                            hintText: 'Enter your name'),
-                        appTextField(
-                            func: (value) {
-                              ref
-                                  .read(registerNotifierProvider.notifier)
-                                  .onUserEmailchange(value);
-                            },
-                            text: 'Email',
-                            iconName: 'assets/icons/user.png',
-                            hintText: 'Enter your Email address'),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        appTextField(
-                            func: (value) {
-                              ref
-                                  .read(registerNotifierProvider.notifier)
-                                  .onUserPasswordchange(value);
-                            },
-                            obsText: true,
-                            text: 'Password',
-                            iconName: 'assets/icons/lock.png',
-                            hintText: 'Enter your Password'),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        appTextField(
-                            func: (value) {
-                              ref
-                                  .read(registerNotifierProvider.notifier)
-                                  .onUserRePasswordchange(value);
-                            },
-                            obsText: true,
-                            text: 'Confirm Password',
-                            iconName: 'assets/icons/lock.png',
-                            hintText: 'Enter your Confirm Password'),
-                        Padding(
-                          padding: EdgeInsets.only(
-                              top: 10.h, left: 25.w, right: 25.w),
-                          child: text14normal(
-                            text:
-                                'By Creating an account you have to agree with \nour therm & condition.',
+          body: Center(
+            child: loader
+                ? const CircularProgressIndicator(
+                    backgroundColor: Colors.blue,
+                    color: AppColors.primaryElement,
+                  )
+                : Center(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(
+                            child: text14normal(
+                                text:
+                                    'Enter yours details below and free sign up'),
                           ),
-                        ),
-                        SizedBox(
-                          height: 50.w,
-                        ),
-                        Center(
-                          child: customButton(
-                              context: context,
-                              onTapFunction: () {
-                                _controller.handleSignUp();
+                          SizedBox(
+                            height: 50.h,
+                          ),
+                          appTextField(
+                              func: (value) {
+                                ref
+                                    .read(registerNotifierProvider.notifier)
+                                    .onUserNamechange(value);
                               },
-                              text: 'Sign Up',
-                              textColor: AppColors.primaryBackground),
-                        ),
-                      ],
+                              text: 'User name',
+                              iconName: 'assets/icons/user.png',
+                              hintText: 'Enter your name'),
+                          appTextField(
+                              func: (value) {
+                                ref
+                                    .read(registerNotifierProvider.notifier)
+                                    .onUserEmailchange(value);
+                              },
+                              text: 'Email',
+                              iconName: 'assets/icons/user.png',
+                              hintText: 'Enter your Email address'),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          appTextField(
+                              func: (value) {
+                                ref
+                                    .read(registerNotifierProvider.notifier)
+                                    .onUserPasswordchange(value);
+                              },
+                              obsText: true,
+                              text: 'Password',
+                              iconName: 'assets/icons/lock.png',
+                              hintText: 'Enter your Password'),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          appTextField(
+                              func: (value) {
+                                ref
+                                    .read(registerNotifierProvider.notifier)
+                                    .onUserRePasswordchange(value);
+                              },
+                              obsText: true,
+                              text: 'Confirm Password',
+                              iconName: 'assets/icons/lock.png',
+                              hintText: 'Enter your Confirm Password'),
+                          Padding(
+                            padding: EdgeInsets.only(
+                                top: 10.h, left: 25.w, right: 25.w),
+                            child: text14normal(
+                              text:
+                                  'By Creating an account you have to agree with \nour therm & condition.',
+                            ),
+                          ),
+                          SizedBox(
+                            height: 50.w,
+                          ),
+                          Center(
+                            child: customButton(
+                                context: context,
+                                onTapFunction: () {
+                                  _controller.handleSignUp();
+                                },
+                                text: 'Sign Up',
+                                textColor: AppColors.primaryBackground),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
+          ),
         ),
       ),
     );
