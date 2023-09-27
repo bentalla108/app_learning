@@ -2,7 +2,6 @@ import 'package:app_learning/common/utils/global_loader/global_loader.dart';
 import 'package:app_learning/common/widget/popup_messenger.dart';
 import 'package:app_learning/pages/sign_up/notifier/register_notifier.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -69,7 +68,9 @@ class SignUpController {
       } else if (e.code == 'user-not-found') {
         toastInfo('User not found');
       }
-    } catch (e) {}
+    } catch (e) {
+      toastInfo(e.toString());
+    }
 
     ref.read(appLoaderProvider.notifier).setLoaderValue(false);
   }

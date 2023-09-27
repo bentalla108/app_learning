@@ -1,19 +1,38 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:app_learning/common/utils/colors.dart';
 import 'package:app_learning/common/widget/app_bar.dart';
 import 'package:app_learning/common/widget/app_textfield.dart';
 import 'package:app_learning/common/widget/button_widget.dart';
 import 'package:app_learning/common/widget/text_widget.dart';
+import 'package:app_learning/pages/sign_in/notifier/sign_in_notifier.dart';
+import 'package:app_learning/pages/sign_in/sign_in_controller.dart';
 import 'package:app_learning/pages/sign_in/widget/sing_in_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends ConsumerStatefulWidget {
   const SignIn({super.key});
 
   @override
+  ConsumerState<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends ConsumerState<SignIn> {
+  late SignInController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = SignInController(ref);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // ignore: avoid_unnecessary_containers
+    final signInController = ref.watch(signInNotifierProvider);
+
     return Container(
+      color: Colors.white,
       child: SafeArea(
         child: Scaffold(
           appBar: buildAppBar(title: 'Sign In'),
@@ -56,7 +75,9 @@ class SignIn extends StatelessWidget {
                   ),
                   Center(
                     child: customButton(
-                        onTapFunction: () {},
+                        onTapFunction: () {
+                          Navigator.of(context).pushNamed('/');
+                        },
                         text: 'LogIn',
                         textColor: AppColors.primaryBackground),
                   ),
